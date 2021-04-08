@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
-console.log(process.env.DB_USER,process.env.DB_PASS,process.env.DB_NAME)
+// console.log(process.env.DB_USER,process.env.DB_PASS,process.env.DB_NAME)
 
 client.connect((err) => {
   const productsCollection = client.db("superShop").collection("products");
@@ -38,6 +38,11 @@ client.connect((err) => {
       res.send(result.insertedCount > 0);
     });
   });
+
+  app.get('/checkOut',(req,res)=>{
+    // productsCollection.find(email:)
+
+  })
 });
 
 app.listen(port);
